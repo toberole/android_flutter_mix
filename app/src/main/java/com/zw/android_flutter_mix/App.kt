@@ -5,11 +5,15 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 
+const val APP_FLUTTER_ENGINE_ID = "app_flutter_engine_id"
+
 class App : Application() {
     lateinit var flutterEngine: FlutterEngine
 
     override fun onCreate() {
         super.onCreate()
+
+        cacheFlutterEngine()
     }
 
     /**
@@ -29,7 +33,7 @@ class App : Application() {
         // Cache the FlutterEngine to be used by FlutterActivity.
         FlutterEngineCache
             .getInstance()
-            .put("app_engine_id", flutterEngine)
+            .put(APP_FLUTTER_ENGINE_ID, flutterEngine)
 
     }
 }

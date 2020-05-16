@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_FirstFlutterActivity.setOnClickListener(this)
     }
 
-
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_FirstFlutterActivity -> {
@@ -34,6 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun gotoFirstFlutterPage(page: Class<FirstFlutterActivity>) {
         var intent = Intent(this@MainActivity, page)
+        // 通过route可以给启动的FlutterActivity传递值
         intent.putExtra("route", "hello route")
         this@MainActivity.startActivity(intent)
     }

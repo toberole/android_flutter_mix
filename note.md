@@ -11,3 +11,9 @@
  * FlutterView：位于io.flutter.embedding.android包中，负责创建Flutter视图。而且FlutterView继承于FrameLayout
  * FlutterEngine：Flutter负责在Android端执行Dart代码的引擎，将Flutter编写的UI代码渲染到FlutterView中。
  */
+ 
+ Android与Flutter之间的通信共有四种实现方式。
+ 1、由于在初始化flutter页面时会传递一个字符串——route
+ 2、通过EventChannel来实现
+ 3、通过MethodChannel来实现
+ 4、通过BasicMessageChannel来实现
