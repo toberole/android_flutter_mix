@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter_mix.demo1.FirstFlutterActivity
+import com.zw.android_flutter_mix.demo1.FirstFlutterActivity_1
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -33,8 +34,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun gotoFirstFlutterPage(page: Class<FirstFlutterActivity>) {
         var intent = Intent(this@MainActivity, page)
-        // 通过route可以给启动的FlutterActivity传递值
-        intent.putExtra("route", "hello route")
+        // 启动FlutterActivity传递值
+        intent.putExtra("data", "hello FirstFlutterActivity")
         this@MainActivity.startActivity(intent)
     }
 }

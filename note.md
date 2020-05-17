@@ -17,3 +17,14 @@
  2、通过EventChannel来实现
  3、通过MethodChannel来实现
  4、通过BasicMessageChannel来实现
+ 
+ 
+ 一个FlutterView对应一个FlutterEngine实例；
+ 一个FlutterEngine实例对应一个Dart Isolate实例；
+ 同一个进程只有且仅有一个Dart VM虚拟机；
+ 一个Dart VM上会存在多个Dart Isolate实例，Isolate是dart代码的执行环境
+ 
+ 根Widget有以下几种：
+ WidgetsApp： 如果需要自定义风格，可以使用WidgetsApp。
+ MaterialApp：Material Design风格的Widget。
+ CupertinoApp iOS风格的根Widget。

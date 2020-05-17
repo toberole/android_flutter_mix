@@ -5,7 +5,14 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
+    signingConfigs {
+        config {
+            keyAlias '654321'
+            keyPassword '654321'
+            storeFile file('demo.ks')
+            storePassword '654321'
+        }
+    }
     defaultConfig {
         applicationId "com.zw.android_flutter_mix"
         minSdkVersion 16
@@ -26,6 +33,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
 
