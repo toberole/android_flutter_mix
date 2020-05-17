@@ -6,6 +6,8 @@ class FlutterPage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // 取消返回箭头
+        automaticallyImplyLeading: false,
         title: Text("FlutterPage 1"),
       ),
       // Builder模式处理navigator无效
