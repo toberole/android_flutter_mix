@@ -6,7 +6,6 @@ import android.util.Log
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterSurfaceView
 import io.flutter.embedding.android.FlutterTextureView
-import io.flutter.embedding.android.SplashScreen
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
@@ -55,7 +54,6 @@ class FirstFlutterActivity : FlutterActivity() {
             }
         })
     }
-
 
     override fun getInitialRoute(): String {
         var intent: Intent? = intent

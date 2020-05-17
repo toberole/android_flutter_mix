@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fluttermodule/test/flutter_page.dart';
+import 'package:fluttermodule/test/flutter_page1.dart';
+import 'package:fluttermodule/test/flutter_page2.dart';
 
 class OpenNativieActivity extends StatefulWidget {
   @override
@@ -8,15 +11,10 @@ class OpenNativieActivity extends StatefulWidget {
 }
 
 class _OpenNativieActivityState extends State<OpenNativieActivity> {
-  static const method_channel_name =
-      "com.zw.android_flutter_mix.demo1.FirstFlutterActivity.Channel";
-  MethodChannel methodChannel;
-
   @override
   void initState() {
     super.initState();
     print("xxxxx initState");
-    methodChannel = MethodChannel(method_channel_name);
   }
 
   @override
@@ -35,35 +33,80 @@ class _OpenNativieActivityState extends State<OpenNativieActivity> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(primaryColor: Colors.white),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text("First Flutter Page"),
-          ),
-          body: Column(
+        routes: <String, WidgetBuilder>{
+          "/flutter_apge1": (context) => new FlutterPage1(),
+          "/flutter_apge2": (BuildContext context) {
+            return Scaffold(
+              appBar: AppBar(
+                title: Text("aaaaaa"),
+              ),
+              body: Text("路由Page"),
+            );
+          }
+        },
+        // builder 模式也可以处理navigator无效
+        // https://juejin.im/post/5c665cb651882562914ec153
+        home: PageXXX());
+  }
+}
+
+// https://juejin.im/post/5c665cb651882562914ec153
+class PageXXX extends StatelessWidget {
+  static const method_channel_name =
+      "com.zw.android_flutter_mix.demo1.FirstFlutterActivity.Channel";
+  MethodChannel methodChannel;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("First Flutter Page"),
+      ),
+      body: Column(
+        children: <Widget>[
+          Row(
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: RaisedButton(
-                      onPressed: openNativeActivity_,
-                      child: Text("open native activity"),
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    child: RaisedButton(
-                      onPressed: openSecondFlutterActivity_,
-                      child: Text("open second flutter activity"),
-                    ),
-                  )
-                ],
-              ),
+              Expanded(
+                child: RaisedButton(
+                  onPressed: openNativeActivity_,
+                  child: Text("open native activity"),
+                ),
+              )
             ],
           ),
-        ));
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: RaisedButton(
+                  onPressed: openSecondFlutterActivity_,
+                  child: Text("open second flutter activity"),
+                ),
+              )
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: RaisedButton(
+                  onPressed: () => {goFlutterPage(context)},
+                  child: Text("go flutter page"),
+                ),
+              )
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: RaisedButton(
+                  onPressed: () => {goFlutterPage111(context)},
+                  child: Text("go flutter page 111"),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   void openNativeActivity_() async {
@@ -76,5 +119,14 @@ class _OpenNativieActivityState extends State<OpenNativieActivity> {
     String res = await methodChannel
         .invokeMethod("openSecondFlutterActivity_", {"data": "aaaaaaaa"});
     print("xxxxx openSecondFlutterActivity_ res = $res");
+  }
+
+  goFlutterPage(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => FlutterPage()));
+  }
+
+  goFlutterPage111(BuildContext context) {
+    Navigator.pushNamed(context, "/flutter_apge1");
   }
 }
