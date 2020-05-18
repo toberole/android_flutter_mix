@@ -4,12 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.zw.android_flutter_mix.demo1.FirstFlutterActivity
-import com.zw.android_flutter_mix.demo1.FlutterOfficalExampleActivity
-import com.zw.android_flutter_mix.demo1.MyFlutterActivity
-import com.zw.android_flutter_mix.demo1.MyFlutterFragmentActivity
+import com.zw.android_flutter_mix.demo1.*
 import io.flutter.embedding.android.FlutterActivity
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,6 +25,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_FlutterOfficalExampleActivity.setOnClickListener(this)
         btn_MyFlutterActivity.setOnClickListener(this)
         btn_srartFlutterActivity.setOnClickListener(this)
+        btn_ThirdFlutterActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -37,11 +34,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 // 跳转到 FirstFlutterActivity
                 gotoFirstFlutterPage(FirstFlutterActivity::class.java)
             }
+
             R.id.btn_FlutterFragment -> {
                 // 跳转到 FlutterFragmentActivity
                 var intent = Intent(this@MainActivity, MyFlutterFragmentActivity::class.java)
                 this@MainActivity.startActivity(intent)
             }
+
             R.id.btn_FlutterOfficalExampleActivity -> {
                 // 跳转到 FlutterOfficalExampleActivity
                 var intent = Intent(this@MainActivity, FlutterOfficalExampleActivity::class.java)
@@ -66,7 +65,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //                startActivity(intent)
 
                 // 方式二直接在manifest中配置
-                var intent = Intent(this,FlutterActivity::class.java)
+                var intent = Intent(this, FlutterActivity::class.java)
+                startActivity(intent)
+            }
+
+            /**
+             * 使用withNewEngine打开继承自FlutterActivity的 传递参数
+             */
+            R.id.btn_ThirdFlutterActivity -> {
+                // 跳转到 ThirdFlutterActivity
+                var intent = ThirdFlutterActivity
+                    .withNewEngine(ThirdFlutterActivity::class.java)
+                    .initialRoute("ThirdFlutterActivity").build(this)
                 startActivity(intent)
             }
         }

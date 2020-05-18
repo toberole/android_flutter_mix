@@ -5,6 +5,7 @@ import 'package:fluttermodule/test/secondflutteractivity_page.dart';
 
 import 'test/FlutterFragmentPage.dart';
 import 'test/MyFlutterActivity_page.dart';
+import 'test/ThirdFlutterActivity_page.dart';
 
 //void main() => runApp(MyApp(
 //      initParams: window.defaultRouteName,
@@ -26,6 +27,8 @@ void main() {
     return runApp(FlutterFragmentPage());
   } else if (initParams.contains("MyFlutterActivity")) {
     return runApp(MyFlutterActivityPage());
+  } else if (initParams.contains("ThirdFlutterActivity")) {
+    return runApp(ThirdFlutterActivityPage());
   } else {
     return runApp(SecondActivityPage());
   }

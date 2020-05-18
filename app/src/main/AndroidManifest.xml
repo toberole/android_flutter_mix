@@ -16,6 +16,8 @@
         <activity android:name=".demo1.NativeActivity" />
         <activity android:name=".demo1.TestActivity" />
 
+        <activity android:name=".demo1.ThirdFlutterActivity"/>
+
         <!-- 不是FlutterActivity 和 不是继承FlutterActivity的Activity不能通过配置传递InitialRoute等参数 -->
         <activity android:name=".demo1.MyFlutterActivity" />
 

@@ -42,5 +42,12 @@
         android:text="直接启动FlutterActivity"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_ThirdFlutterActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ThirdFlutterActivity"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>

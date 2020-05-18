@@ -5,6 +5,7 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter_mix.APP_FLUTTER_ENGINE_ID
 import com.zw.android_flutter_mix.R
+import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterView
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
@@ -57,4 +58,6 @@ class MyFlutterActivity : AppCompatActivity() {
          */
         flutterEngine?.lifecycleChannel?.appIsResumed()
     }
+
+
 }
