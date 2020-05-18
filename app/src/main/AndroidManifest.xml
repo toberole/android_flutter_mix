@@ -10,12 +10,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".demo1.MyFlutterFragmentActivity"></activity>
+        <activity android:name=".demo1.FlutterOfficalExampleActivity"></activity>
+        <activity android:name=".demo1.MyFlutterFragmentActivity" />
         <activity android:name=".demo1.SecondFlutterActivity" />
         <activity android:name=".demo1.NativeActivity" />
         <activity android:name=".demo1.TestActivity" />
-        <activity android:name=".demo1.FirstFlutterActivity_1" />
-        <activity android:name=".demo1.FirstFlutterActivity" />
+
+        <!-- 不是FlutterActivity 和 不是继承FlutterActivity的Activity不能通过配置传递InitialRoute等参数 -->
+        <activity android:name=".demo1.MyFlutterActivity" />
+
+        <activity android:name=".demo1.FirstFlutterActivity">
+            <meta-data
+                android:name="io.flutter.InitialRoute"
+                android:value="meta-data first_flutter_activity_page" />
+        </activity>
+
+        <activity android:name="io.flutter.embedding.android.FlutterActivity">
+            <!-- InitialRoute -->
+            <meta-data
+                android:name="io.flutter.InitialRoute"
+                android:value="**** meta-data InitialRoute ****" />
+            <!-- Entrypoint -->
+            <meta-data
+                android:name="io.flutter.Entrypoint"
+                android:value="main_x" />
+        </activity>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

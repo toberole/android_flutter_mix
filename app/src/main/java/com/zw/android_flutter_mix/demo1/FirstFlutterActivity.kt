@@ -1,22 +1,25 @@
 package com.zw.android_flutter_mix.demo1
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterSurfaceView
 import io.flutter.embedding.android.FlutterTextureView
+import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
 /**
  * Activity 加载Flutter页面
  * FlutterActivity封装了相关加载flutter页面的逻辑
+ * 会自动去加载dart flutter代码 执行main.dart#main
+ *
  */
 class FirstFlutterActivity : FlutterActivity() {
     companion object {
         val TAG = FirstFlutterActivity::class.java.simpleName
-
         val method_channel_name = "com.zw.android_flutter_mix.demo1.FirstFlutterActivity.Channel"
     }
 
@@ -24,10 +27,6 @@ class FirstFlutterActivity : FlutterActivity() {
         super.onCreate(savedInstanceState)
         initMethodChannel()
     }
-
-//    override fun provideSplashScreen(): SplashScreen? {
-//        return null
-//    }
 
     private fun initMethodChannel() {
         var methodChannel =
@@ -55,12 +54,25 @@ class FirstFlutterActivity : FlutterActivity() {
         })
     }
 
-    override fun getInitialRoute(): String {
-        var intent: Intent? = intent
-        var data: String? = intent?.getStringExtra("data")
-        Log.i(TAG, "data: $data " + System.currentTimeMillis())
-        return data + "first_flutter_activity_page"
+    override fun provideFlutterEngine(context: Context): FlutterEngine? {
+        return super.provideFlutterEngine(context)
     }
+
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        flutterEngine.navigationChannel.setInitialRoute("*************************")
+        // super.configureFlutterEngine(flutterEngine)
+    }
+
+    override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {
+        super.cleanUpFlutterEngine(flutterEngine)
+    }
+
+//    override fun getInitialRoute(): String {
+//        var intent: Intent? = intent
+//        var data: String? = intent?.getStringExtra("data")
+//        Log.i(TAG, "data: $data " + System.currentTimeMillis())
+//        return data + "first_flutter_activity_page"
+//    }
 
     override fun onFlutterTextureViewCreated(flutterTextureView: FlutterTextureView) {
         super.onFlutterTextureViewCreated(flutterTextureView)

@@ -14,21 +14,20 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        //cacheFlutterEngine()
+        // cacheFlutterEngine()
     }
 
     /**
      * 根据id获取对应的缓存FlutterEngine,，缓存的FlutterEngine打开Flutter页面时，
-     * 明显比withNewEngine的引擎打开Flutter页面快，但是 CachedEngineIntentBuilder
-     * 没有NewEngineIntentBuilder的initialRoute("")方法。
+     * 明显比withNewEngine的引擎打开Flutter页面快，
+     * 但是CachedEngineIntentBuilder没有NewEngineIntentBuilder的initialRoute("")方法。
      */
     private fun cacheFlutterEngine() {
         FlutterMain.startInitialization(this)
         FlutterMain.ensureInitializationComplete(this, null)
 
-        // Instantiate a FlutterEngine.
         flutterEngine = FlutterEngine(this)
-
+        flutterEngine.navigationChannel.setInitialRoute("App ......")
         // Start executing Dart code to pre-warm the FlutterEngine.
         flutterEngine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
@@ -38,6 +37,5 @@ class App : Application() {
         FlutterEngineCache
             .getInstance()
             .put(APP_FLUTTER_ENGINE_ID, flutterEngine)
-
     }
 }

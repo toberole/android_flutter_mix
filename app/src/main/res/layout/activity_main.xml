@@ -11,11 +11,36 @@
         android:id="@+id/btn_FlutterFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FlutterFragment" />
+        android:text="FlutterFragment"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_FirstFlutterActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FirstFlutterActivity" />
+        android:text="FirstFlutterActivity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_FlutterOfficalExampleActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="官方demo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_MyFlutterActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MyFlutterActivity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_srartFlutterActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="直接启动FlutterActivity"
+        android:textAllCaps="false" />
+
+
 </LinearLayout>
