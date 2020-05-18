@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter_mix.demo1.FirstFlutterActivity
-import com.zw.android_flutter_mix.demo1.FirstFlutterActivity_1
+import com.zw.android_flutter_mix.demo1.MyFlutterFragmentActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btn_FirstFlutterActivity.setOnClickListener(this)
+        btn_FlutterFragment.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_FirstFlutterActivity -> {
                 // 跳转到FirstFlutterActivity
                 gotoFirstFlutterPage(FirstFlutterActivity::class.java)
+            }
+            R.id.btn_FlutterFragment->{
+                // 跳转到FlutterFragmentActivity
+                var intent = Intent(this@MainActivity, MyFlutterFragmentActivity::class.java)
+                this@MainActivity.startActivity(intent)
             }
         }
     }

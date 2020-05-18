@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".demo1.SecondFlutterActivity"></activity>
+        <activity android:name=".demo1.MyFlutterFragmentActivity"></activity>
+        <activity android:name=".demo1.SecondFlutterActivity" />
         <activity android:name=".demo1.NativeActivity" />
         <activity android:name=".demo1.TestActivity" />
         <activity android:name=".demo1.FirstFlutterActivity_1" />
