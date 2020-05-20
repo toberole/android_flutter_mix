@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttermodule/test/flutter_page.dart';
 import 'package:fluttermodule/test/flutter_page1.dart';
-import 'package:fluttermodule/test/flutter_page2.dart';
 
 class OpenNativieActivity extends StatefulWidget {
   @override
@@ -33,6 +32,7 @@ class _OpenNativieActivityState extends State<OpenNativieActivity> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(primaryColor: Colors.white),
+        // typedef WidgetBuilder = Widget Function(BuildContext context)
         routes: <String, WidgetBuilder>{
           "/flutter_apge1": (context) => new FlutterPage1(),
           "/flutter_apge2": (BuildContext context) {
@@ -58,12 +58,28 @@ class PageXXX extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (methodChannel == null) {
+      methodChannel = MethodChannel(method_channel_name);
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text("First Flutter Page"),
       ),
       body: Column(
         children: <Widget>[
+          Builder(
+            builder: (context) {
+              return Row(
+                children: <Widget>[
+                  Expanded(
+                    child: RaisedButton(
+                      child: Text("builder 模式"),
+                    ),
+                  )
+                ],
+              );
+            },
+          ),
           Row(
             children: <Widget>[
               Expanded(

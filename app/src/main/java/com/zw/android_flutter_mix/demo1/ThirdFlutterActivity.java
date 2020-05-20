@@ -15,6 +15,4 @@ public class ThirdFlutterActivity extends FlutterActivity {
             super(activityClass);
         }
     }
-
-
 }

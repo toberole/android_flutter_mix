@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter_mix.demo1.*
+import com.zw.android_flutter_mix.demo2.StudyFlutterActivity
 import io.flutter.embedding.android.FlutterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,6 +27,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_MyFlutterActivity.setOnClickListener(this)
         btn_srartFlutterActivity.setOnClickListener(this)
         btn_ThirdFlutterActivity.setOnClickListener(this)
+        btn_Test.setOnClickListener(this)
+        btn_flutter.setOnClickListener(this)
+
+
     }
 
     override fun onClick(v: View?) {
@@ -69,6 +74,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
 
+            R.id.btn_flutter->{
+                var intent = Intent(this, StudyFlutterActivity::class.java)
+                intent.putExtra("route","/StudyFlutterActivity")
+                startActivity(intent)
+            }
+
             /**
              * 使用withNewEngine打开继承自FlutterActivity的 传递参数
              */
@@ -77,6 +88,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 var intent = ThirdFlutterActivity
                     .withNewEngine(ThirdFlutterActivity::class.java)
                     .initialRoute("ThirdFlutterActivity").build(this)
+                startActivity(intent)
+            }
+
+            R.id.btn_Test -> {
+                var intent =
+                    withNewEngine(TestFlutterActivity::class.java)?.initialRoute("TestFlutterActivity")
+                        ?.build(this)
                 startActivity(intent)
             }
         }

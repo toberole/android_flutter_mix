@@ -20,4 +20,15 @@ class Test_Kotlin {
     inner class Demo1 {
         fun test() {}
     }
+
+    /*
+     public static class Demo_xxxx {
+        public static void demo() {
+
+        }
+     }
+     */
+    companion object Demo_xxxx {
+        fun demo() {}
+    }
 }
