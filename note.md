@@ -16,3 +16,28 @@
  WidgetsApp： 如果需要自定义风格，可以使用WidgetsApp。
  MaterialApp：Material Design风格的Widget。
  CupertinoApp iOS风格的根Widget。
+ 
+ Wrap_content ,Wrap_content :
+  //use this as child
+  Wrap(
+   children: <Widget>[*your_child*])
+   
+ Match_parent,Match_parent:
+  //use this as child
+ Container(
+         height: double.infinity,
+     width: double.infinity,child:*your_child*)
+ 
+ Match_parent,Wrap_content :
+  //use this as child
+ Row(
+   mainAxisSize: MainAxisSize.max,
+   children: <Widget>[*your_child*],
+ );
+ 
+ Wrap_content ,Match_parent:
+  //use this as child
+ Column(
+   mainAxisSize: MainAxisSize.max,
+   children: <Widget>[your_child],
+ );

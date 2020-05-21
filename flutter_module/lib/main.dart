@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:fluttermodule/test/open_native_activity_navigator_builder.dart';
 import 'package:fluttermodule/test/secondflutteractivity_page.dart';
+import 'package:fluttermodule/test0/MT_Page.dart';
 import 'package:fluttermodule/test1/ButtonPage.dart';
 import 'package:fluttermodule/test1/DartDemo.dart';
 import 'package:fluttermodule/test1/Icon_Page.dart';
@@ -19,8 +20,11 @@ import 'test1/Img_Page.dart';
 import 'test1/Progress_Page.dart';
 import 'test1/Switch_Checkbox_Page.dart';
 import 'test1/TextField_Page.dart';
+import 'test2/Align_Page.dart';
 import 'test2/Flex_Expanded_LayoutPage.dart';
 import 'test2/Row_Column_LayoutPage.dart';
+import 'test2/Stack_Positioned_LayoutPage.dart';
+import 'test2/Wrap_Flow_LayoutPage.dart';
 
 //void main() => runApp(MyApp(
 //      initParams: window.defaultRouteName,
@@ -46,6 +50,8 @@ void main() {
     return runApp(ThirdFlutterActivityPage());
   } else if (initParams.contains("TestFlutterActivity")) {
     return runApp(LayoutTest());
+  } else if (initParams.contains("MT_Page_Activity")) {
+    return runApp(MT_Page());
   } else if (initParams.contains("StudyFlutterActivity")) {
     // return runApp(DartDemo());
     // return runApp(Page1());
@@ -60,9 +66,10 @@ void main() {
     // return runApp(Form_Page());
     // return runApp(Progress_Page());
     // return runApp(Row_Column_LayoutPage());
-    return runApp(Flex_Expanded_LayoutPage());
-
-
+    // return runApp(Flex_Expanded_LayoutPage());
+    // return runApp(Wrap_Flow_LayoutPage());
+    // return runApp(Stack_Positioned_LayoutPage());
+    // return runApp(Align_Page());
   } else {
     return runApp(SecondActivityPage());
   }

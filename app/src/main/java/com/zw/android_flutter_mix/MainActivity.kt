@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter_mix.demo1.*
+import com.zw.android_flutter_mix.demo2.MT_Page_Activity
 import com.zw.android_flutter_mix.demo2.StudyFlutterActivity
 import io.flutter.embedding.android.FlutterActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,8 +30,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_ThirdFlutterActivity.setOnClickListener(this)
         btn_Test.setOnClickListener(this)
         btn_flutter.setOnClickListener(this)
-
-
+        btn_MT_Page_Activity.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -80,6 +80,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }
 
+            R.id.btn_MT_Page_Activity->{
+                var intent = Intent(this, MT_Page_Activity::class.java)
+                intent.putExtra("route","/MT_Page_Activity")
+                startActivity(intent)
+            }
+
+
+
             /**
              * 使用withNewEngine打开继承自FlutterActivity的 传递参数
              */
@@ -97,6 +105,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         ?.build(this)
                 startActivity(intent)
             }
+
+
+
         }
     }
 
