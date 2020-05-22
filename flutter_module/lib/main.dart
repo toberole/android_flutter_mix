@@ -10,6 +10,8 @@ import 'package:fluttermodule/test1/Page1.dart';
 import 'package:fluttermodule/test1/RoutePage.dart';
 import 'package:fluttermodule/test1/TextPage.dart';
 import 'package:fluttermodule/test1/lifecycle.dart';
+import 'package:fluttermodule/test3/Box_Page.dart';
+import 'package:fluttermodule/test3/Padding_Page.dart';
 
 import 'test/FlutterFragmentPage.dart';
 import 'test/MyFlutterActivity_page.dart';
@@ -25,6 +27,11 @@ import 'test2/Flex_Expanded_LayoutPage.dart';
 import 'test2/Row_Column_LayoutPage.dart';
 import 'test2/Stack_Positioned_LayoutPage.dart';
 import 'test2/Wrap_Flow_LayoutPage.dart';
+import 'test3/Clip_Page.dart';
+import 'test3/Container_Page.dart';
+import 'test3/DecoratedBox_Page.dart';
+import 'test3/Material_Page.dart';
+import 'test3/Transform_Page.dart';
 
 //void main() => runApp(MyApp(
 //      initParams: window.defaultRouteName,
@@ -70,6 +77,14 @@ void main() {
     // return runApp(Wrap_Flow_LayoutPage());
     // return runApp(Stack_Positioned_LayoutPage());
     // return runApp(Align_Page());
+    // return runApp(Padding_Page());
+    // return runApp(Box_Page());
+    // return runApp(DecoratedBox_Page());
+    // return runApp(DecoratedBox_Page());
+    // return runApp(Transform_Page());
+    // return runApp(Container_Page());
+    // return runApp(Material_Page());
+    return runApp(Clip_Page());
   } else {
     return runApp(SecondActivityPage());
   }
@@ -78,6 +93,5 @@ void main() {
 void main_x() {
   String initParams = window.defaultRouteName;
   print("xxxxx main_x initParams:$initParams");
-
   return runApp(SecondActivityPage());
 }

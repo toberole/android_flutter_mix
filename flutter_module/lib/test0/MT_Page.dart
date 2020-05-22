@@ -31,6 +31,23 @@ class _MT_PageState extends State<MT_Page> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    // 相当于释放
+    methodChannel.setMethodCallHandler(null);
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+  }
+
+  @override
   void initState() {
     super.initState();
 
