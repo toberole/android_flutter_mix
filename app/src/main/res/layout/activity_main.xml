@@ -70,5 +70,12 @@
         android:text="btn_MT_Page_Activity ..."
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_TestKotlinActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TestKotlinActivity ..."
+        android:textAllCaps="false" />
+
 
 </LinearLayout>

@@ -55,6 +55,37 @@ class _TextField_PageState extends State<TextField_Page> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
+              width: 50,
+              color: Colors.grey,
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.blue,
+                  textBaseline: TextBaseline.alphabetic, //用于提示文字对齐
+                ),
+                decoration: InputDecoration(
+                  //重要 用于编辑框对齐
+                  isDense: true,
+                  contentPadding: EdgeInsets.zero,
+                  hintText: "我是提示文字",
+                  border: InputBorder.none,
+                  //去除编辑框下划线
+                  hintStyle: TextStyle(
+                      fontSize: 13,
+                      textBaseline: TextBaseline.alphabetic, //用于提示文字对齐
+                      color: Colors.grey),
+                ),
+              ),
+            ),
+            Container(
+              color: Colors.grey,
+              child: TextField(
+                decoration: InputDecoration(
+                    hintText: "********",
+                    contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0)),
+              ),
+            ),
+            Container(
               child: TextField(
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -101,7 +132,6 @@ class _TextField_PageState extends State<TextField_Page> {
                   prefixIcon: Icon(Icons.lock)),
               obscureText: true,
             ),
-
             // 控制焦点
             TextField(
               autofocus: true,
@@ -147,3 +177,6 @@ class _TextField_PageState extends State<TextField_Page> {
     print("TextField_onEditingComplete ${tec.text}");
   }
 }
+
+
+
