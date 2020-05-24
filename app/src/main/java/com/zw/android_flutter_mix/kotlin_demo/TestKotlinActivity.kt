@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import com.zw.android_flutter_mix.R
+import io.flutter.view.FlutterMain
 import kotlinx.android.synthetic.main.activity_test_kotlin.*
 import kotlinx.coroutines.*
 
@@ -14,6 +15,8 @@ class TestKotlinActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_kotlin)
         btn_test1.setOnClickListener(this)
+
+        // FlutterMain.ensureInitializationComplete()
     }
 
     override fun onClick(v: View?) {
