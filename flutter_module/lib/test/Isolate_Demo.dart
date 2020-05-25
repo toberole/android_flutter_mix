@@ -1,7 +1,6 @@
-
 import 'dart:isolate';
 
-class Isolate_Demo{
+class Isolate_Demo {
   loadData() async {
     ReceivePort receivePort = new ReceivePort();
     await Isolate.spawn(dataLoader, receivePort.sendPort);
@@ -9,9 +8,8 @@ class Isolate_Demo{
     // The 'echo' isolate sends it's SendPort as the first message
     SendPort sendPort = await receivePort.first;
 
-    List msg = await sendReceive(sendPort, "https://jsonplaceholder.typicode.com/posts");
-
-
+    List msg = await sendReceive(
+        sendPort, "https://jsonplaceholder.typicode.com/posts");
   }
 
 // the entry point for the isolate
