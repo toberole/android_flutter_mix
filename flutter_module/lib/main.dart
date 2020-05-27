@@ -14,6 +14,7 @@ import 'package:fluttermodule/test1/lifecycle.dart';
 import 'package:fluttermodule/test3/Box_Page.dart';
 import 'package:fluttermodule/test3/Padding_Page.dart';
 import 'package:fluttermodule/test5/Counter.dart';
+import 'package:fluttermodule/test5/InheritWidget_State_Manager_Page.dart';
 import 'package:fluttermodule/test5/State_Manager_Page.dart';
 import 'package:provide/provide.dart';
 
@@ -92,19 +93,25 @@ void main() {
     // return runApp(Clip_Page());
     // return runApp(Overlay_Page());
 
-    ////////////////状态管理//////////////
-    var counter = Counter();
-    var providers = Providers();
-    providers.provide(Provider<Counter>.value(counter));
-    var providerNode = ProviderNode(
-      providers: providers,
-      child: State_Manager_Page(),
-    );
-
-    return runApp(providerNode);
+    // 状态管理
+    // provide_test();
+    return runApp(InheritWidget_State_Manager_Page());
   } else {
     return runApp(SecondActivityPage());
   }
+}
+
+////////////////状态管理 provide: ^1.0.2//////////////
+void provide_test() {
+  var counter = Counter();
+  var providers = Providers();
+  providers.provide(Provider<Counter>.value(counter));
+  var providerNode = ProviderNode(
+    providers: providers,
+    child: State_Manager_Page(),
+  );
+
+  return runApp(providerNode);
 }
 
 void main_x() {
