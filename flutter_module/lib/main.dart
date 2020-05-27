@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+
 import 'package:fluttermodule/test/open_native_activity_navigator_builder.dart';
 import 'package:fluttermodule/test/secondflutteractivity_page.dart';
 import 'package:fluttermodule/test0/MT_Page.dart';
@@ -12,6 +13,9 @@ import 'package:fluttermodule/test1/TextPage.dart';
 import 'package:fluttermodule/test1/lifecycle.dart';
 import 'package:fluttermodule/test3/Box_Page.dart';
 import 'package:fluttermodule/test3/Padding_Page.dart';
+import 'package:fluttermodule/test5/Counter.dart';
+import 'package:fluttermodule/test5/State_Manager_Page.dart';
+import 'package:provide/provide.dart';
 
 import 'test/FlutterFragmentPage.dart';
 import 'test/MyFlutterActivity_page.dart';
@@ -86,8 +90,18 @@ void main() {
     // return runApp(Container_Page());
     // return runApp(Material_Page());
     // return runApp(Clip_Page());
-    return runApp(Overlay_Page());
+    // return runApp(Overlay_Page());
 
+    ////////////////状态管理//////////////
+    var counter = Counter();
+    var providers = Providers();
+    providers.provide(Provider<Counter>.value(counter));
+    var providerNode = ProviderNode(
+      providers: providers,
+      child: State_Manager_Page(),
+    );
+
+    return runApp(providerNode);
   } else {
     return runApp(SecondActivityPage());
   }
