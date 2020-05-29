@@ -173,10 +173,10 @@
       "name": "fluttermodule",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.7"
     }
   ],
-  "generated": "2020-05-26T09:32:50.837794Z",
+  "generated": "2020-05-28T05:15:00.171646Z",
   "generator": "pub",
   "generatorVersion": "2.8.2"
 }

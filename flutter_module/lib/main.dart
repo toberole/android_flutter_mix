@@ -38,6 +38,7 @@ import 'test3/DecoratedBox_Page.dart';
 import 'test3/Material_Page.dart';
 import 'test3/Transform_Page.dart';
 import 'test4/Overlay_Page.dart';
+import 'test5/extension_page.dart';
 
 //void main() => runApp(MyApp(
 //      initParams: window.defaultRouteName,
@@ -95,7 +96,8 @@ void main() {
 
     // 状态管理
     // provide_test();
-    return runApp(InheritWidget_State_Manager_Page());
+    // return runApp(InheritWidget_State_Manager_Page());
+    return runApp(extension_page());
   } else {
     return runApp(SecondActivityPage());
   }
