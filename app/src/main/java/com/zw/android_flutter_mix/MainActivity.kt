@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btn_MT_Page_Activity.setOnClickListener(this)
         btn_TestKotlinActivity.setOnClickListener(this)
 
+        btn_MyFlutterActivity1.setOnClickListener(this)
 
     }
 
@@ -59,6 +60,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_MyFlutterActivity -> {
                 // 跳转到 MyFlutterActivity
                 var intent = Intent(this@MainActivity, MyFlutterActivity::class.java)
+                this@MainActivity.startActivity(intent)
+            }
+
+            R.id.btn_MyFlutterActivity1 -> {
+                // 跳转到 MyFlutterActivity
+                var intent = Intent(this@MainActivity, MyFlutterActivity_1::class.java)
                 this@MainActivity.startActivity(intent)
             }
 

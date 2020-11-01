@@ -5,7 +5,6 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter_mix.APP_FLUTTER_ENGINE_ID
 import com.zw.android_flutter_mix.R
-import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterView
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
@@ -13,7 +12,8 @@ import io.flutter.embedding.engine.dart.DartExecutor
 import kotlinx.android.synthetic.main.activity_first_flutter.*
 
 /**
- * 不继承FlutterActvity 手动处理flutterview flutterengine相关逻辑
+ * 不继承FlutterActvity
+ * 手动处理flutterview flutterengine相关逻辑
  */
 class MyFlutterActivity : AppCompatActivity() {
     private var flutterEngine: FlutterEngine? = null
@@ -47,6 +47,7 @@ class MyFlutterActivity : AppCompatActivity() {
     private fun test() {
         flutterEngine = FlutterEngine(this)
         flutterEngine!!.navigationChannel.setInitialRoute("MyFlutterActivity")
+
         flutterEngine!!.dartExecutor.executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault())
         flutterView.attachToFlutterEngine(flutterEngine!!)
     }
@@ -58,6 +59,4 @@ class MyFlutterActivity : AppCompatActivity() {
          */
         flutterEngine?.lifecycleChannel?.appIsResumed()
     }
-
-
 }
