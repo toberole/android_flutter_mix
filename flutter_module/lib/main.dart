@@ -6,6 +6,7 @@ import 'package:fluttermodule/test/secondflutteractivity_page.dart';
 import 'package:fluttermodule/test0/MT_Page.dart';
 import 'package:fluttermodule/test5/Counter.dart';
 import 'package:fluttermodule/test5/State_Manager_Page.dart';
+import 'package:fluttermodule/test6/launch.dart';
 import 'package:provide/provide.dart';
 
 import 'test/FlutterFragmentPage.dart';
@@ -25,6 +26,8 @@ import 'test5/extension_page.dart';
 void main() {
   String initParams = window.defaultRouteName;
   print("xxxxx main initParams:$initParams");
+
+  return runApp(Launch());
 
   if (initParams.contains("first_flutter_activity_page")) {
     return runApp(OpenNativieActivity());
