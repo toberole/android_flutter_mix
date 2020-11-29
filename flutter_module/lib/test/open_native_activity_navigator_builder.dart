@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttermodule/test/flutter_page.dart';
-import 'package:fluttermodule/test/flutter_page1.dart';
+import 'package:fluttermodule/test/flutter_navigator_page1.dart';
 
 class OpenNativieActivity extends StatefulWidget {
   @override
