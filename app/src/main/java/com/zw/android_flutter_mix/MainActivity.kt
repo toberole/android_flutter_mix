@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.zw.android_flutter_mix.demo1.*
 import com.zw.android_flutter_mix.demo2.MT_Page_Activity
 import com.zw.android_flutter_mix.demo2.StudyFlutterActivity
+import com.zw.android_flutter_mix.demo3.LaunchActivity
 import com.zw.android_flutter_mix.kotlin_demo.TestKotlinActivity
 import io.flutter.embedding.android.FlutterActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,6 +24,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+        btn_LaunchActivity.setOnClickListener(this)
         btn_FirstFlutterActivity.setOnClickListener(this)
         btn_FlutterFragment.setOnClickListener(this)
         btn_FlutterOfficalExampleActivity.setOnClickListener(this)
@@ -40,6 +44,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
+            R.id.btn_LaunchActivity -> {
+                var i = Intent(this, LaunchActivity::class.java)
+                startActivity(i)
+            }
             R.id.btn_FirstFlutterActivity -> {
                 // 跳转到 FirstFlutterActivity
                 gotoFirstFlutterPage(FirstFlutterActivity::class.java)
@@ -59,7 +67,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.btn_MyFlutterActivity -> {
                 // 跳转到 MyFlutterActivity
-                var intent = Intent(this@MainActivity, MyFlutterActivity::class.java)
+                var intent = Intent(this@MainActivity, MyFlutterActivity_2::class.java)
                 this@MainActivity.startActivity(intent)
             }
 

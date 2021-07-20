@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".demo1.MyFlutterActivity_1"></activity>
+        <activity android:name=".demo3.LaunchActivity"/>
+        <activity android:name=".demo1.MyFlutterActivity_2" />
+        <activity android:name=".demo1.MyFlutterActivity_1" />
         <activity android:name=".kotlin_demo.TestKotlinActivity" />
         <activity android:name=".demo2.MT_Page_Activity" />
         <activity android:name=".demo2.StudyFlutterActivity" />
